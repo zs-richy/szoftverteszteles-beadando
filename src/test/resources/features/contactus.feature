@@ -8,7 +8,7 @@ Feature: Testing the Contact Us page
       Given the name is filled with "Teszt Elek"
       And the contact email is filled with '<email>'
       And the enquiry is filled with '<enquiry>'
-      And the Submit button is clicked
+      When the Submit button is clicked
       Then the <contactUsMessage> is shown
       Examples:
         | email               | enquiry                   | contactUsMessage   |

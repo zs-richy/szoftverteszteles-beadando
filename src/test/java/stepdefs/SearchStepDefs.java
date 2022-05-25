@@ -34,9 +34,9 @@ public class SearchStepDefs extends AbstractStepDefs {
         homePage.findBy(BUTTON_SEARCH).click();
     }
 
-    @And("the Keyword is filled with mac")
-    public void theKeywordIsFilledWithMac() {
-        homePage.findBy(INPUT_KEYWORD).sendKeys(DATA_KEYWORD);
+    @And("the Keyword is filled with {string}")
+    public void theKeywordIsFilledWithMac(String param) {
+        homePage.findBy(INPUT_KEYWORD).sendKeys(param);
     }
 
     @And("the category \'Desktops\' is selected")

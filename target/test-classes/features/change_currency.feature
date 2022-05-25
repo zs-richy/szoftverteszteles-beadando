@@ -7,7 +7,7 @@ Feature: Testing the currency changing functionality
 
   Scenario Outline:
     Given the currency dropdown is clicked
-    And the <currency> is selected
+    When the <currency> is selected
     Then the price should be in <currency>
     Examples:
       | currency  |

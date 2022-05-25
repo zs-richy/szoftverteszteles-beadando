@@ -13,7 +13,7 @@ Feature: Testing the registration form validators
       And the password is filled with '<password>'
       And the confirm password is filled with '<confirmpassword>'
       And the Agree to Privacy Policy is checked <agreeChecked>
-      And the Continue button is clicked
+      When the Continue button is clicked
       Then the message <message> is shown
       Examples:
         | email               | password      | confirmpassword    | agreeChecked | message             |

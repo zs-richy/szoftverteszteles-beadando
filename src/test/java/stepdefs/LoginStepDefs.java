@@ -13,6 +13,8 @@ public class LoginStepDefs extends AbstractStepDefs {
     private final By TEXT_SUCCESSLOGOUT = By.xpath("/html/body/div[2]/div/div/p[1]");
     private final By INPUT_EMAIL = By.xpath("/html/body/div[2]/div/div/div/div[2]/div/form/div[1]/input");
     private final By INPUT_PASSWORD = By.xpath("/html/body/div[2]/div/div/div/div[2]/div/form/div[2]/input");
+    private final By MENU_ITEMS = By.cssSelector(".dropdown-menu-right li");
+    private final By OPTION_MYACCOUNT = By.xpath("/html/body/nav/div/div[2]/ul/li[2]/ul/li[1]/a");
 
     private final String DATA_EMAIL = "teszt@elek.com";
     private final String DATA_PASSWORD = "TesztElek";
@@ -45,10 +47,14 @@ public class LoginStepDefs extends AbstractStepDefs {
 
     @And("the user is logged in")
     public void theUserIsLoggedIn() {
-        loginOptionIsClicked();
-        theFieldEmailFieldIsFilledWith("teszt@elek.com");
-        theFieldPasswordIsFilledWith("TesztElek");
-        theLoginButtonIsPressed();
+        if (homePage.findAllBy(MENU_ITEMS).size() > 2) {
+            homePage.findBy(OPTION_MYACCOUNT).click();
+        } else {
+            loginOptionIsClicked();
+            theFieldEmailFieldIsFilledWith("teszt@elek.com");
+            theFieldPasswordIsFilledWith("TesztElek");
+            theLoginButtonIsPressed();
+        }
     }
 
     @And("the field email field is filled with {string}")
